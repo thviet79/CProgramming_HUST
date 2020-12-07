@@ -3,7 +3,7 @@
 int main()
 {
     char c;
-    int count = 1;
+    int count = 0;
 
     printf("Enter your text: ");
 
@@ -24,5 +24,5 @@ int main()
             reset = 0;
     } while (c != '\n');
 
-    printf("Your text has %d words", count);
+    printf("Your text has %d words", ++count);
 }
