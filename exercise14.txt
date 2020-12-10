@@ -1,0 +1,9 @@
+#include..
+
+int main
+{
+ if (weather == hot)
+  go.to.beach();
+ else
+  go.skiing();
+}
