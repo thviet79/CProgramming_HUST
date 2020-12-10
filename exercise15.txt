@@ -1,0 +1,7 @@
+#include ..
+
+int main
+{
+  if (money != running.out)
+    CDs = buy;
+}
