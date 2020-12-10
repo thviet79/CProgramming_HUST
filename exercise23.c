@@ -5,5 +5,6 @@
 
 int main
 {
-  printf("Welcome to C Programming Introduction.\n);
+  printf("Welcome to C");
+  printf("Programming Introduction.\n);
 }
