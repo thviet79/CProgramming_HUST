@@ -1,0 +1,2 @@
+cd
+mkdir -p Cprogramming/week1
