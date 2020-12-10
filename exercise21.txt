@@ -1,2 +1,1 @@
-cd
-mkdir -p Cprogramming/week1
+gcc hello.c && ./a.out
