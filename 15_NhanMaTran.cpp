@@ -25,17 +25,15 @@ void Xuatmatran(double a[100][100], int m, int n)
 void Nhanmatran(double a1[100][100], int m1, int n1, double a2[100][100], int m2, int n2)
 {
   double a[100][100];
-  double sum;
   for (int i = 0; i < m1; i++)
   {
     for (int j = 0; j < n2; j++)
     {
+      a[i][j] = 0;
       for (int x = 0; x < n1; x++)
       {
-        sum += a1[i][x] * a2[x][j];
+        a[i][j] += a1[i][x] * a2[x][j];
       }
-      a[i][j] = sum;
-      sum = 0;
     }
   }
   printf("Ma tran ket qua la:\n");
