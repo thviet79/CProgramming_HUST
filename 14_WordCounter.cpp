@@ -7,12 +7,12 @@ int main()
 
     printf("Enter your text: ");
 
-    int reset = 1;
+    int reset = 0;
 
     do
     {
         scanf("%c", &c);
-        if (c == ' ' || c == '\t')
+        if (c != ' ' && c != '\t' && c != '\n')
         {
             if (reset == 0)
             {
@@ -24,5 +24,5 @@ int main()
             reset = 0;
     } while (c != '\n');
 
-    printf("Your text has %d words", ++count);
+    printf("Your text has %d words", count);
 }
