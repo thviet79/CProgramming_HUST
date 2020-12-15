@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 struct Student
 {
@@ -16,6 +17,7 @@ void StudentIn(Student *p, int n)
         printf("Enter name:\n");
         fflush(stdin);
         fgets((p + i)->Name, 100, stdin);
+        (p + i)->Name[strlen((p + i)->Name) - 1] = '\0';
         printf("Enter Gender (1 = Male, 0 = Female):\n");
         scanf("%d", &(p + i)->Gender);
         printf("Enter Grade:\n");
@@ -23,16 +25,16 @@ void StudentIn(Student *p, int n)
     }
 }
 
-int BestStudent(Student *p, int n)
+char *BestStudent(Student *p, int n)
 {
     double max = p->Grade;
-    int best;
+    char *best;
     for (int i = 0; i < n; i++)
     {
         if (max <= (p + i)->Grade)
         {
             max = (p + i)->Grade;
-            best = i + 1;
+            best = (p + i)->Name;
         }
     }
     return best;
@@ -57,6 +59,6 @@ int main()
     Student *p = (Student *)malloc(n * (sizeof(Student)));
     StudentIn(p, n);
     StudentOut(p, n);
-    printf("\nStudent %d has the best performance!", BestStudent(p, n));
+    printf("\nStudent %s has the best performance!", BestStudent(p, n));
     free(p);
 }
