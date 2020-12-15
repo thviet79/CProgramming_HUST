@@ -5,7 +5,7 @@
 struct Student
 {
     char Name[100];
-    int Gender;
+    char Gender;
     double Grade;
 };
 
@@ -19,7 +19,14 @@ void StudentIn(Student *p, int n)
         fgets((p + i)->Name, 100, stdin);
         (p + i)->Name[strlen((p + i)->Name) - 1] = '\0';
         printf("Enter Gender (1 = Male, 0 = Female):\n");
-        scanf("%d", &(p + i)->Gender);
+        while (1)
+        {
+            scanf("%lf", &(p + i)->Gender);
+            if ((p + i)->Gender == 0 || (p + i)->Gender == 1)
+                break;
+            else
+                printf("Invalid Input!\n");
+        }
         printf("Enter Grade:\n");
         scanf("%lf", &(p + i)->Grade);
     }
@@ -46,7 +53,7 @@ void StudentOut(Student *p, int n)
     {
         printf("\nSTUDENT %d\n", i + 1);
         printf("Name: %s", (p + i)->Name);
-        printf("Gender: %s\n", (p + i)->Gender == 0 ? "Female" : (p + i)->Gender == 1 ? "Male" : "Error");
+        printf("Gender: %s\n", (p + i)->Gender == 0 ? "Female" : "Male");
         printf("Grade: %g", (p + i)->Grade);
     }
 }
