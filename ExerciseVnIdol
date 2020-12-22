@@ -1,0 +1,52 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void getJudgeData(double *p)
+{
+    for (int i = 0; i < 5; i++)
+    {
+        printf("Enter score %d: ", i + 1);
+        scanf("%lf", p + i);
+    }
+}
+
+double max(double *p)
+{
+    double max = p[0];
+    for (int i = 0; i < 5; i++)
+    {
+        if (max < p[i])
+            max = p[i];
+    }
+    return max;
+}
+
+double min(double *p)
+{
+    double min = p[0];
+    for (int i = 0; i < 5; i++)
+    {
+        if (min > p[i])
+            min = p[i];
+    }
+    return min;
+}
+
+double calcScore(double *p)
+{
+    double sum = 0;
+    for (int i = 0; i < 5; i++)
+    {
+        sum += p[i];
+    }
+    sum -= max(p) + min(p);
+    return sum / 3;
+}
+
+int main()
+{
+    double *p = (double *)malloc(5 * sizeof(double));
+    getJudgeData(p);
+    printf("Score: %lf\n", calcScore(p));
+    free(p);
+}
